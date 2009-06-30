@@ -43,7 +43,8 @@ class JrubyHadoopEnvironment
   end
 
   def get_local_cache_archives(jobconf)
-    Java::OrgApacheHadoopFilecache::DistributedCache.get_local_cache_archives(jobconf) || []
+    archives = Java::OrgApacheHadoopFilecache::DistributedCache.get_local_cache_archives(jobconf) || []
+    archives
   end
 
   def get_local_cache_files(jobconf)
