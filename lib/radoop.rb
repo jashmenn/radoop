@@ -110,8 +110,8 @@ class Radoop
 
   def set_default_configuration(jobconf)
     {
-      :input_format => TextInputFormat,
-      :output_format => TextOutputFormat,
+      :input_format => Java::OrgApacheHadoopMapred::TextInputFormat,
+      :output_format => Java::OrgApacheHadoopMapred::TextOutputFormat,
       :mapper_class => Java::ComRestphoneRadoop::RubyMapReducer
     }.each_pair do |k, v|
       jobconf.send("set_#{k}", *v)

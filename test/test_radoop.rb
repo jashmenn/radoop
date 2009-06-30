@@ -65,8 +65,8 @@ class RadoopTest < Test::Unit::TestCase
   test "sequence_file_output_compression_type does the right thing" do
     r = TestWithInputAndOutput.new
     jobconf = stub('JobConf object')
-    SequenceFileOutputFormat.expects(:setCompressOutput).with(jobconf, true)
-    SequenceFileOutputFormat.expects(:setOutputCompressionType).with(
+    Java::OrgApacheHadoopMapred::SequenceFileOutputFormat.expects(:setCompressOutput).with(jobconf, true)
+    Java::OrgApacheHadoopMapred::SequenceFileOutputFormat.expects(:setOutputCompressionType).with(
       jobconf,
       Java::OrgApacheHadoopIo::SequenceFile::CompressionType::RECORD
     )
@@ -110,10 +110,10 @@ class TstRadoop < Radoop
   include_package "org.apache.hadoop.fs"
   include_package "org.apache.hadoop.mapred"
 
-  input_path Path.new('/user/james/tmp/tale*.txt')
-  output_path Path.new('/tmp/hadoopoutput' + Process.pid.to_s)
+  input_path Java::OrgApacheHadoopFs::Path.new('/user/james/tmp/tale*.txt')
+  output_path Java::OrgApacheHadoopFs::Path.new('/tmp/hadoopoutput' + Process.pid.to_s)
 
-  output_format SequenceFileOutputFormat
+  output_format Java::OrgApacheHadoopMapred::SequenceFileOutputFormat
 
   output_key_class Text
   output_value_class IntWritable

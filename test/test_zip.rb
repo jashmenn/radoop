@@ -10,7 +10,7 @@ class ZipTest < Test::Unit::TestCase
     RadoopZip.create_temporary_zipfile("", test_files) do |z|
       must_call
       puts "z is #{z}"
-      sleep 60
+      sleep 3 
     end
   end
 end
