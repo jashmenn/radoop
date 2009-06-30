@@ -52,6 +52,12 @@ Radoop handles zipping up your jruby install directory, your gem directories, an
 
 * FIX (sudo gem install, anything else)
 
+== BUILD:
+
+* Hadoop and JRuby installed
+* Environment variable: HADOOP_HOME, JRUBY_HOME
+* jruby scripting engine setup: http://java.sun.com/developer/technicalArticles/scripting/jruby/
+
 == LICENSE:
 
 (The MIT License)
